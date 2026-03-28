@@ -1,25 +1,12 @@
 const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-link , .btn-primary');
+const navItems = document.querySelectorAll('.nav-link, .btn-primary');
 
 burgerBtn.addEventListener('click', () => {
     burgerBtn.classList.toggle('active');
     navMenu.classList.toggle('active');
-    
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-});
-
-document.querySelectorAll('.nav-link , .btn-primary').forEach(link => {
-    link.addEventListener('click', () => {
-        burgerBtn.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
 navItems.forEach(link => {
@@ -32,27 +19,41 @@ navItems.forEach(link => {
 
 const observerOptions = {
     root: null,
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0, 
+    rootMargin: '-50% 0px -50% 0px', 
+    threshold: 0 
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const currentId = entry.target.getAttribute('id');
-
-            navItems.forEach(item => {
-
-                item.classList.remove('active');
-                
-                if (item.getAttribute('href') === `#${currentId}`) {
-                    item.classList.add('active');
-                }
-            });
+            updateActiveLink(currentId);
         }
     });
 }, observerOptions);
 
-sections.forEach(section => {
-    observer.observe(section);
+sections.forEach(section => observer.observe(section));
+
+function updateActiveLink(id) {
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${id}`) {
+            item.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.offsetHeight;
+
+    if (scrollPos < 100) {
+        navItems.forEach(item => item.classList.remove('active'));
+        return;
+    }
+
+    if ((windowHeight + scrollPos) >= documentHeight - 100) {
+        updateActiveLink('contact');
+    }
 });
