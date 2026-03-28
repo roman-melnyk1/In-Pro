@@ -205,7 +205,7 @@ h1 {
   font-family: var(--font-heading);
 }
 
-.btn-primary:active {
+.btn-primary.active {
   color: var(--color-accent);
   border-color: var(--color-accent);
 }
