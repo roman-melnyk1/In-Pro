@@ -186,11 +186,12 @@ h1 {
 }
 
 .nav-link.active {
+  transform: scale(1.1);
   color: var(--color-accent);
-  font-weight: 700;
 }
 
 .nav-link:hover {
+    transform: scale(1.1);
   color: var(--color-accent);
 }
 

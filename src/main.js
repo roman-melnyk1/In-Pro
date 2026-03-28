@@ -27,7 +27,7 @@ document.querySelectorAll('.nav-link , .btn-primary').forEach(link => {
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2, 
+    threshold: 0.15, 
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -35,12 +35,12 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const currentId = entry.target.getAttribute('id');
 
-            navLinks.forEach(link => {
+            navItem.forEach(item => {
 
-                link.classList.remove('active');
+                item.classList.remove('active');
                 
-                if (link.getAttribute('href') === `#${currentId}`) {
-                    link.classList.add('active');
+                if (item.getAttribute('href') === `#${currentId}`) {
+                    item.classList.add('active');
                 }
             });
         }
