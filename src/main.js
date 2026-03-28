@@ -1,7 +1,7 @@
 const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link .btn-primary');
+const navItems = document.querySelectorAll('.nav-link , .btn-primary');
 
 burgerBtn.addEventListener('click', () => {
     burgerBtn.classList.toggle('active');
@@ -22,7 +22,13 @@ document.querySelectorAll('.nav-link , .btn-primary').forEach(link => {
     });
 });
 
-
+navItems.forEach(link => {
+    link.addEventListener('click', () => {
+        burgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
 
 const observerOptions = {
     root: null,
@@ -35,7 +41,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const currentId = entry.target.getAttribute('id');
 
-            navItem.forEach(item => {
+            navItems.forEach(item => {
 
                 item.classList.remove('active');
                 
