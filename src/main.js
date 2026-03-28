@@ -32,8 +32,8 @@ navItems.forEach(link => {
 
 const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.2, 
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0, 
 };
 
 const observer = new IntersectionObserver((entries) => {
