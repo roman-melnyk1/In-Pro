@@ -196,7 +196,8 @@ h1 {
 
 .btn-primary {
   background-color: transparent;
-  color: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px var(--color-primary) solid;
   padding: 16px 32px;
   border-radius: 8px;
   font-weight: 600;
