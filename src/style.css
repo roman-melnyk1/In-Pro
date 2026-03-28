@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-margin-top: 70px;
 }
 
 body {
