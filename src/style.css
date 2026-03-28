@@ -185,6 +185,11 @@ h1 {
   transition: color 0.3s;
 }
 
+.nav-link.active {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 .nav-link:hover {
   color: var(--color-accent);
 }
