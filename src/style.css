@@ -195,7 +195,7 @@ h1 {
 }
 
 .btn-primary {
-  background-color: var(--color-accent);
+  background-color: transparent;
   color: var(--color-bg);
   padding: 16px 32px;
   border-radius: 8px;
