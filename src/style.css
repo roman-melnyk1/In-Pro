@@ -204,6 +204,11 @@ h1 {
   font-family: var(--font-heading);
 }
 
+.btn-primary:active {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .hero {
   padding: 40px 0;
 }

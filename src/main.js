@@ -1,7 +1,7 @@
 const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinks = document.querySelectorAll('.nav-link .btn-primary');
 
 burgerBtn.addEventListener('click', () => {
     burgerBtn.classList.toggle('active');
@@ -27,7 +27,7 @@ document.querySelectorAll('.nav-link , .btn-primary').forEach(link => {
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5 
+    threshold: 0.2, 
 };
 
 const observer = new IntersectionObserver((entries) => {
