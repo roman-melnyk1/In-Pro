@@ -11,20 +11,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
   </head>
 <body>
-  <header class="header">
+  <div class="glow top-left-glow"></div>
+  <div class="glow bottom-right-glow"></div>
+  <div class="glow brands-glow"></div>
+  <div class="glow hero-glow"></div>
+
+  <header class="header" data-aos="fade-down">
     <div class="container header-inner">
       <a href="#" class="logo">
         <img src="./src/images/logo.png" alt="In-pro логотип">
       </a>
 
-      <button class="burger-btn" id="burgerToggle" aria-label="Відкрити меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <a href="#contact" class="btn-primary tablet-btn">Зв'яжіться з нами</a>
+        
+        <button class="burger-btn" id="burgerToggle" aria-label="Відкрити меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
       <nav class="nav-menu" id="navMenu">
         <ul class="nav-menu__list">
@@ -32,50 +40,47 @@
           <li><a href="#about" class="nav-link">Про нас</a></li>
           <li><a href="#partners" class="nav-link">Партнери</a></li>
         </ul>
-        <a href="#contact" class="btn-primary">Зв'яжіться з нами</a>
+        <a href="#contact" class="btn-primary mobile-btn">Зв'яжіться з нами</a>
       </nav>
     </div>
   </header>
 
   <main style="padding-top: 70px;">
     
-    <section class="hero">
+<section class="hero">
       <div class="container hero-inner">
         
-        <div class="hero-content">
-          <h1 class="hero-title">Ми робимо ваші<br>оселі теплими</h1>
-          <p class="hero-subtitle">Професійний монтаж та обслуговування систем опалення</p>
-        </div>
+        <div class="hero-left">
+          <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">Ми робимо ваші<br>оселі теплими</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Професійний монтаж та обслуговування систем опалення</p>
+          </div>
 
-        <div class="hero-image-wrapper">
+          <ul class="hero-contacts">
+            <li class="contact-item"  data-aos="fade-up" data-aos-anchor=".hero" data-aos-delay="400">
+              <img src="./src/svg/phone.svg" alt="Телефон" class="contact-icon">
+              <a href="tel:+380775565577" class="contact-link">+380-77-556-5577</a>
+            </li>
+            <li class="contact-item" data-aos="fade-up" data-aos-anchor=".hero" data-aos-delay="500">
+              <img src="./src/svg/address.svg" alt="Адреса" class="contact-icon">
+              <a href="https://www.google.com/maps/search/?api=1&query=Львів,+вул.+Володимира+Великого,+4" target="_blank" rel="noopener noreferrer" class="contact-link">
+                м. Львів, вул.Володимира Великого, 4, оф.307
+              </a>
+            </li>
+            <li class="contact-item" data-aos="fade-up" data-aos-anchor=".hero" data-aos-delay="600">
+              <img src="./src/svg/clock.svg" alt="Години роботи" class="contact-icon">
+              <span>пн-пт 9:00 - 18:00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-image-wrapper" data-aos="zoom-in">
           <img src="./src/images/fireplace.jpg" alt="Затишна тераса з опаленням" class="hero-img">
         </div>
-
-        <ul class="hero-contacts">
-          <li class="contact-item">
-            <img src="./src/svg/phone.svg" alt="Телефон" class="contact-icon">
-            <a href="tel:+380775565577" class="contact-link">
-              +380-77-556-5577
-            </a>
-          </li>
-          <li class="contact-item">
-            <img src="./src/svg/address.svg" alt="Адреса" class="contact-icon">
-            <a href="https://www.google.com/maps/search/?api=1&query=Львів,+вул.+Володимира+Великого,+4" target="_blank" rel="noopener noreferrer" class="contact-link">
-              м. Львів, вул.Володимира Великого, 4, оф.307
-            </a>
-          </li>
-          <li class="contact-item">
-            <img src="./src/svg/clock.svg" alt="Години роботи" class="contact-icon">
-            <span>пн-пт 9:00 - 18:00</span>
-          </li>
-        </ul>
 
       </div>
     </section>
 
     <section class="offerings" id="services">
-      <div class="glow top-left-glow"></div>
-      <div class="glow bottom-right-glow"></div>
 
       <div class="container offerings-inner">
         <h2 class="section-title">Що ми пропонуємо</h2>
@@ -150,19 +155,16 @@
           <div class="about-card">
             <h3 class="about-card-title">Хто ми</h3>
             <p class="about-card-text">In-Pro надає професійні послуги на ринку України з 2016 року. Ми не просто монтуємо обладнання - ми створюємо надійні системи, що працюють безперебійно. Наша мета - повний цикл турботи про клієнта: від першого креслення до багаторічного сервісу.</p>
-            <!-- <span class="about-card-number">01</span> -->
           </div>
 
           <div class="about-card">
             <h3 class="about-card-title">Офіційний сервіс</h3>
             <p class="about-card-text">ТОВ In-Pro є авторизованим сервісним центром провідних світових брендів: <strong>Wilo</strong> (насосне обладнання), <strong>Bosch</strong> Термотехніка (опалення) та <strong>Danfoss</strong> (автоматизація). Ми гарантуємо професійне вирішення технічних питань як у гарантійний, так і в позагарантійний терміни.</p>
-            <!-- <span class="about-card-number">02</span> -->
           </div>
 
           <div class="about-card">
             <h3 class="about-card-title">Наша спеціалізація</h3>
             <p class="about-card-text">Реалізуємо комплексні інженерні рішення для приватних будинків, промислових об'єктів та багатоквартирних будинків (ІТП). Від котелень на будь-якому паливі до насосних станцій підвищення тиску та складних КНС - ми знаємо, як змусити систему працювати ідеально.</p>
-            <!-- <span class="about-card-number">03</span> -->
           </div>
 
         </div>
@@ -174,11 +176,11 @@
         
         <div class="partners-grid">
           <a href="https://www.viessmann.ua/" target="_blank" rel="noopener noreferrer" class="partner-link">
-            <img src="./src/images/viessman.png" alt="Viessmann" class="partner-logo" >
+            <img src="./src/images/viessman.png" alt="Viessmann" class="partner-logo viessmann" >
           </a>
           
           <a href="https://wilo.com/ua/uk/" target="_blank" rel="noopener noreferrer" class="partner-link">
-            <img src="./src/images/Wilo.png" alt="Wilo" class="partner-logo">
+            <img src="./src/images/Wilo.png" alt="Wilo" class="partner-logo wilo">
           </a>
           
           <a href="https://www.bosch-homecomfort.com/ua/uk/" target="_blank" rel="noopener noreferrer" class="partner-link">
@@ -197,8 +199,10 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container contact-inner">
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      
+      <div class="contact-info">
         
         <div class="contact-header">
           <span class="contact-subtitle">Зв'язатися з інженером</span>
@@ -206,45 +210,56 @@
           <p class="contact-desc">Зв'яжіться з нашою командою, щоб отримати професійну оцінку вашого об'єкта. Ми спроєктуємо надійну систему, підберемо найкраще обладнання та забезпечимо його безперебійну роботу на довгі роки.</p>
         </div>
 
-        <div class="contact-form-card">
-          <form action="#" method="POST" class="contact-form">
-            
-            <input type="email" name="email" placeholder="Email" required class="form-input">
-            
-            <div class="form-row">
-              <input type="text" name="first_name" placeholder="Ім'я" required class="form-input">
-              <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
-            </div>
-
-            <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
-            
-            <textarea name="message" placeholder="Які послуги вас цікавлять?" rows="4" class="form-input textarea-input"></textarea>
-            
-            <button type="submit" class="btn-submit">Відправити</button>
-          </form>
-        </div>
-
         <ul class="contact-benefits">
-          <li>
+          <li class="contact-benefits-item">
             <img src="./src/svg/check.svg" alt="Check" class="benefit-icon"> 
-            Професійна консультація
+            <div class="benefit-text-wrapper">
+              <p class="contact-benefits-text">Професійна консультація</p>
+              <span class="contact-benefits-desc">Розберемо ваші задачі, відповімо на технічні питання та запропонуємо енергоефективні рішення.</span>
+            </div>
           </li>
-          <li>
+          
+          <li class="contact-benefits-item">
             <img src="./src/svg/check.svg" alt="Check" class="benefit-icon"> 
-            Оптимальний підбір
+            <div class="benefit-text-wrapper">
+              <p class="contact-benefits-text">Оптимальний підбір</p>
+              <span class="contact-benefits-desc">Запропонуємо надійну техніку від наших партнерів (Bosch, Wilo, Danfoss) під ваш бюджет.</span>
+            </div>
           </li>
-          <li>
+          
+          <li class="contact-benefits-item">
             <img src="./src/svg/check.svg" alt="Check" class="benefit-icon"> 
-            Прозорий кошторис
+            <div class="benefit-text-wrapper">
+              <p class="contact-benefits-text">Прозорий кошторис</p>
+              <span class="contact-benefits-desc">Зробимо попередній прорахунок вартості обладнання та монтажних робіт без прихованих платежів.</span>
+            </div>
           </li>
-          <li>
+          
+          <li class="contact-benefits-item">
             <img src="./src/svg/check.svg" alt="Check" class="benefit-icon"> 
-            Офіційна гарантія
+            <div class="benefit-text-wrapper">
+              <p class="contact-benefits-text">Офіційна гарантія</p>
+              <span class="contact-benefits-desc">Обговоримо умови гарантійного та післягарантійного обслуговування від авторизованого сервісу.</span>
+            </div>
           </li>
         </ul>
 
+      </div> 
+      <div class="contact-form-card">
+        <form action="#" method="POST" class="contact-form">
+          <input type="email" name="email" placeholder="Email" required class="form-input">
+          <div class="form-row">
+            <input type="text" name="first_name" placeholder="Ім'я" required class="form-input">
+            <input type="text" name="last_name" placeholder="Прізвище" required class="form-input">
+          </div>
+          <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
+          <textarea name="message" placeholder="Які послуги вас цікавлять?" rows="4" class="form-input textarea-input"></textarea>
+          <button type="submit" class="btn-submit form-btn">Відправити</button>
+        </form>
       </div>
-    </section>
+
+    </div>
+  </section>
   </main>
 
   <footer class="footer">
@@ -272,6 +287,7 @@
       </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

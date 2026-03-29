@@ -29,6 +29,11 @@ body {
   background-color: var(--color-bg);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 img, svg {
@@ -153,12 +158,13 @@ h1 {
 .nav-menu {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
+  transform: translateX(100%);
   width: 100%;
   height: 100vh;
   background-color: var(--color-bg);
   padding-top: 120px;
-  transition: right 0.4s ease;
+  transition: transform 0.4s ease;
   z-index: 99;
   
   display: flex;
@@ -167,8 +173,12 @@ h1 {
   gap: 40px;
 }
 
+.glow{
+  display: none;
+}
+
 .nav-menu.active {
-  right: 0;
+  transform: translateX(0)
 }
 
 .nav-menu__list {
@@ -208,6 +218,7 @@ h1 {
 .btn-primary.active {
   color: var(--color-accent);
   border-color: var(--color-accent);
+  background-color: var(--color-bg);
 }
 
 .hero {
@@ -217,8 +228,28 @@ h1 {
 .hero-inner {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 48px;
 }
+
+.hero-left {
+  display: contents; 
+}
+
+.hero-content {
+  order: 1;
+}
+
+.hero-image-wrapper {
+  order: 2;
+}
+
+.hero-contacts {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 
 .hero-title {
   font-family: var(--font-heading);
@@ -235,19 +266,13 @@ h1 {
 
 .hero-img {
   width: 100%;
-  max-height: 300px;
+  height: 300px;
   border-radius: 24px;
   object-fit: cover;
   border-top: 10px #FFFFFF solid;
   border-bottom: 10px #FFFFFF solid;
   border-left: 8px #FFFFFF solid;
   border-right: 8px #FFFFFF solid;
-}
-
-.hero-contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .contact-item {
@@ -345,18 +370,8 @@ h1 {
   filter: blur(250px);
   -webkit-filter: blur(250px);
   opacity: 0.8;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
-}
-
-.top-left-glow {
-  top: 550px;
-  left: -180px;
-}
-
-.bottom-right-glow {
-  bottom: 550px;
-  right: -180px;
 }
 
 /* ======= Секція Про Компанію ======= */
@@ -377,7 +392,7 @@ h1 {
   padding: 32px 24px 48px 24px;
   position: relative;
   overflow: hidden;
-  color: #121212;
+  color: var(--color-bg);
 }
 
 .about-card-title {
@@ -392,22 +407,8 @@ h1 {
 .about-card-text {
   font-size: 1.25rem;
   line-height: 1.5;
-  color: #121212;
-  position: relative;
+  color: var(--color-bg);
   z-index: 2;
-}
-
-.about-card-number {
-  position: absolute;
-  bottom: -5px;
-  right: 16px;
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.2); 
-  z-index: 1;
-  line-height: 1;
-  pointer-events: none;
 }
 
 /* ====== Партнери ====== */
@@ -482,6 +483,7 @@ h1 {
 
 .form-row {
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -491,15 +493,15 @@ h1 {
   border: 1px solid var(--color-primary);
   border-radius: 12px;
   padding: 16px;
-  color: var(--color-primary); /* Твій білий колір тексту */
+  color: var(--color-primary);
   font-family: var(--font-body);
   font-size: 1rem;
-  outline: none; /* Забираємо стандартну синю рамку браузера */
+  outline: none;
   transition: border-color 0.3s;
 }
 
 .form-input::placeholder {
-  color: #9CA3AF;
+  color: rgb(255, 255, 255, 0.5);
 }
 
 .form-input:focus {
@@ -510,11 +512,10 @@ h1 {
   resize: none;
 }
 
-/* Кнопка відправити */
 .btn-submit {
   width: 100%;
   background-color: var(--color-accent);
-  color: #000000;
+  color: var(--color-bg);
   border: none;
   padding: 16px;
   border-radius: 12px;
@@ -527,7 +528,7 @@ h1 {
 }
 
 .btn-submit:active {
-  transform: scale(0.98); /* Ефект легкого "продавлювання" при кліку на телефоні */
+  transform: scale(0.95);
 }
 
 .contact-benefits {
@@ -549,6 +550,11 @@ h1 {
 .benefit-icon {
   width: 24px;
   height: 24px;
+}
+
+.contact-benefits-desc {
+  display: none;
+  overflow: hidden;
 }
 
 /* ====== Секція Футер ====== */
@@ -606,4 +612,505 @@ h1 {
 .copyright {
   font-size: 0.875rem;
   color: rgb(255, 255, 255, 0.6);
+}
+
+.tablet-btn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+
+  .glow {
+    display: block;
+  }
+
+  .top-left-glow {
+    top: 450px;
+    left: -200px;
+  }
+
+  .bottom-right-glow {
+    top: 1800px;
+    right: -180px;
+  }
+
+  .brands-glow {
+    top: 2500px;
+    left: -120px;
+  }
+
+  .hero-glow {
+    top: 3700px;
+    left: -120px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .tablet-btn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    border-radius: 20px;
+    padding: 12px 24px;
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgb(253, 201, 0, 0.3);
+    transition: all 0.5s ease;
+  }
+
+  .tablet-btn.active{
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px rgb(255, 255, 255, 0.3);
+  }
+
+  .mobile-btn {
+    display: none;
+  }
+
+  .burger-btn{
+    margin-top: 10px;
+  }
+
+  /* ====== Hero section ====== */
+
+  .hero-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .hero-left {
+    flex: 0 0 calc(55% - 20px); 
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-content, 
+  .hero-image-wrapper, 
+  .hero-contacts {
+    order: 0;
+  }
+
+  .hero-image-wrapper {
+    flex: 1; 
+    min-width: 0;
+  }
+
+  .hero-img {
+    max-height: 350px;
+    height: 100%;
+  }
+  
+  .contact-item {
+    font-weight: 700;
+  }
+
+  /* ====== Секція Послуг ====== */
+
+  .cards-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 12px);
+    min-width: 0;
+    min-height: 300px;
+    background-color: rgb(255, 255, 255, 0.8);
+  }
+
+  .card-text {
+    max-width: 250px;
+  }
+
+  /* ====== Секція Про Компанію ====== */
+  
+  .section-title{
+    margin-bottom: 70px;
+  }
+
+  .about-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-card {
+    max-width: 450px;
+    min-height: 500px;
+    background-color: rgb(255, 255, 255, 0.8);
+  }
+
+  .about-card-title{
+    font-size: 2.25rem;
+  }
+
+  .about-card-text {
+    margin-top: 32px;
+    font-size: 1.5rem;
+  }
+
+  /* ====== Секція Бренди ====== */
+
+  .partners-grid {
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .partner-logo {
+    max-width: 100px;
+  }
+
+  .viessmann {
+    max-width: 150px;
+    margin-right: -25px;
+  }
+
+  .wilo {
+    max-width: 75px;
+  }
+
+  /* ====== Секція Контакти ====== */
+
+  .contact-title {
+    font-size: 2.5rem;
+    max-width: 470px;
+  }
+
+  .contact-desc {
+    font-weight: 200;
+    max-width: 530px;
+  }
+
+  .contact-form-card {
+    padding: 55px 60px;
+    box-shadow: 0 0 15px #fdc90080;
+  }
+  
+  .contact-form {
+    gap: 48px;
+  }
+
+  .form-input {
+    padding: 24px;
+    font-size: 1.15rem;
+  }
+
+  .form-row {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .form-row input {
+    flex: 1;
+  }
+
+
+  .contact-benefits {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .contact-benefits li {
+    flex: 0 0 calc(50% - 8px);
+    align-items: center;
+  }
+
+  .contact-benefits-text{
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  .benefit-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* === Секція Футер */
+
+  .footer {
+    padding: 16px 0;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .footer-socials {
+    margin-top: 16px;
+    margin-left: 32px;
+  }
+
+  .footer-info {
+    margin-top: 16px;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .footer-info > * {
+    padding: 0 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .footer-info > *:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .footer-info > *:first-child {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .hero-glow {
+    top: 0;
+    left: -250px;
+  }
+
+  .top-left-glow {
+    left: -250px;
+  }
+
+  .container {
+    max-width: 1440px;
+  }
+
+  .glow{
+    display: block;
+  }
+
+  .offerings, .about, .partners, .contact .hero {
+    padding: 80px 0; 
+  }
+
+  .header-inner {
+    margin-bottom: 16px;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .burger-btn, .tablet-btn {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    padding-top: 16px;
+    flex-direction: row;
+    right: auto;
+    background-color: transparent;
+    transform: none;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .nav-menu__list{
+    flex-direction: row;
+    gap: 32px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+  }
+
+  .mobile-btn {
+    display: inline-block;
+    padding: 16px 24px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    font-size: 1.15rem;
+    color: var(--color-bg);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    border-radius: 30px;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 15px rgba(253, 201, 0, 0.7);
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  /* ====== Hero section ====== */
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-contacts {
+    gap: 24px;
+  }
+
+  .contact-item {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+
+  .hero-img {
+    max-height: none;
+    height: 500px;
+    width: 100%;
+    border: 8px #FFFFFF solid;
+    transition: all 0.3s ease;
+  }
+
+  .hero-img:hover {
+    border: 1px #121212 solid;
+    transform: scale(1.05);
+  }
+
+  /* ====== Послуги ====== */
+
+  .card {
+    flex: 0 0 calc(25% - 18px);
+    transition: all 0.5s ease;
+  }
+
+  .card-icon{
+    transition: all 0.5s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
+  }
+
+  .card:hover .card-icon {
+    box-shadow: 0 0 30px rgba(253, 201, 0, 0.5);
+  }
+
+  /* ====== Хто ми ======*/
+  .about-cards {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .about-card {
+    transition: all 0.5s ease;
+  }
+
+  .about-card:hover {
+    transform: scale(1.1);
+  }
+
+  .about-card-title{
+    font-size: 2.25rem;
+  }
+
+  /* ====== Бренди ====== */
+
+  .partners{
+    padding: 150px 0;
+  }
+  .partners-grid{
+    gap: 64px;
+    justify-content: center;
+  }
+
+  .partner-logo {
+    max-width: 250px;
+    transition: transform 0.5s ease;
+  }
+
+  .partner-logo:hover{
+    transform: scale(1.1);
+  }
+
+  /* ====== Контакти ====== */
+
+.contact-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
+.contact-title{
+  font-size: 3.5rem;
+  max-width: 550px;
+}
+
+  .contact-info {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-form-card {
+    max-height: 700px;
+  }
+
+  .contact-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0; 
+  }
+
+  .contact-benefits-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .benefit-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-benefits-desc {
+    display: inline;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .form-btn {
+    transition: transform 0.3s ease;
+  }
+
+  .form-btn:hover {
+    transform: scale(1.05);
+  }
 }

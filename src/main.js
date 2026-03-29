@@ -3,7 +3,8 @@ const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-link, .btn-primary');
 
-burgerBtn.addEventListener('click', () => {
+burgerBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     burgerBtn.classList.toggle('active');
     navMenu.classList.toggle('active');
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
@@ -43,7 +44,7 @@ function updateActiveLink(id) {
     });
 }
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', (event) => {
     const scrollPos = window.scrollY;
     const windowHeight = window.innerHeight;
     const documentHeight = document.body.offsetHeight;
@@ -56,4 +57,10 @@ window.addEventListener('scroll', () => {
     if ((windowHeight + scrollPos) >= documentHeight - 100) {
         updateActiveLink('contact');
     }
+});
+
+AOS.init({
+  duration: 800,
+  once: true,
+  offset: 80,
 });
