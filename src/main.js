@@ -1,3 +1,7 @@
+import { inject } from "@vercel/analytics"
+
+inject();
+
 const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
