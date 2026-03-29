@@ -958,6 +958,10 @@ h1 {
     height: 50px;
   }
 
+  .footer-logo img {
+    height: 50px;
+  }
+
   /* ====== Hero section ====== */
 
   .hero-title {
