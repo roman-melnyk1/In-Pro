@@ -1,8 +1,8 @@
 import { inject } from "@vercel/analytics";
 import { injectSpeedInsights } from '@vercel/speed-insights';
 
-injectSpeedInsights();
 inject();
+injectSpeedInsights();
 
 const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
