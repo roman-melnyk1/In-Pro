@@ -8,6 +8,7 @@ const burgerBtn = document.getElementById('burgerToggle');
 const navMenu = document.getElementById('navMenu');
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-link, .btn-primary');
+const form = document.getElementById('contactForm');
 
 burgerBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -49,6 +50,13 @@ function updateActiveLink(id) {
         }
     });
 }
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    console.log("Nothing happened yet!");
+    form.reset();
+});
 
 window.addEventListener('scroll', (event) => {
     const scrollPos = window.scrollY;
