@@ -536,20 +536,19 @@ h1 {
   transform: scale(0.95);
 }
 
+
+
 .contact-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-left: auto;
-  margin-right: auto;
+  display: none;
+  overflow: hidden;
 }
 
 .contact-benefits li {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 600;
-  font-size: 0.9375rem;
+  font-weight: 500;
+  font-size: 0.75rem;
 }
 
 .benefit-icon {
@@ -821,10 +820,14 @@ h1 {
   }
 
 
+
   .contact-benefits {
+    display: flex;
+    gap: 8px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
+    margin-top: 16px;
   }
 
   .contact-benefits li {
@@ -834,12 +837,12 @@ h1 {
 
   .contact-benefits-text{
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .benefit-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 
   /* === Секція Футер */
@@ -1091,7 +1094,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin: 0; 
+    margin: 0;
   }
 
   .contact-benefits-item {
@@ -1107,12 +1110,21 @@ h1 {
     gap: 4px;
   }
 
+  .contact-benefits-text{
+    font-size: 1.25rem;
+  }
+
   .contact-benefits-desc {
     display: inline;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.4;
     font-weight: 300;
+  }
+
+  .benefit-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .form-btn {
